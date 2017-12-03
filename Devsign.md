@@ -1,6 +1,6 @@
 Chosun Univ. Opensource Software Project (01)
 ========================================
-# Group : Devsign
+Group : Devsign
 ---------------
 > ## Leader.
 - **Kim Ju-yeong**, computer engineering, 3, 20124838
