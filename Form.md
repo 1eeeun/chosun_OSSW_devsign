@@ -3,10 +3,12 @@ Chosun Univ. Opensource Software Project(01), Devsign
 uCrop
 ------------
 
-# 1. Program Summary
+# 1. 이 프로그램을 고른 이유
+
+# 2. Program Summary
 > 개요
 
-# 2. 오픈 소스 SW에 대한 각 기능별 설명(폴더별 or 중요한 순서)
+# 3. 오픈 소스 SW에 대한 각 기능별 설명(폴더별 or 중요한 순서)
 - 1번 기능
 	code
 ABCD
@@ -19,10 +21,8 @@ ABCD
 <pre><code>code</code></pre>
 ABCD
 
-# 3. Bug Report
+# 4. Bug Report
 
-# 4. 프로그램 개선사항
-
-# 5. 이 프로그램을 고른 이유
+# 5. 프로그램 개선사항
 
 # 6. 소감
