@@ -1,4 +1,4 @@
-####com.yalantis.crop\view\GestureCropImageView
+####com.yalantis.crop\view\widget\GestureCropImageView
 
 package com.yalantis.ucrop.view;
 
