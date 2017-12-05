@@ -17,7 +17,7 @@ public class RectUtils {
      * @param r the rectangle to get the corners of
      * @return the float array of corners (8 floats)
      */
-    public static float[] getCornersFromRect(RectF r) {
+    public static float[] getCornersFromRect(RectF r) { // 사각형의 2D 좌표 변수
         return new float[]{
                 r.left, r.top,
                 r.right, r.top,
@@ -38,7 +38,7 @@ public class RectUtils {
      * @param corners the float array of corners (8 floats)
      * @return the float array of width and height (2 floats)
      */
-    public static float[] getRectSidesFromCorners(float[] corners) {
+    public static float[] getRectSidesFromCorners(float[] corners) {    // 사각형의 폭과 높이 계산
         return new float[]{(float) Math.sqrt(Math.pow(corners[0] - corners[2], 2) + Math.pow(corners[1] - corners[3], 2)),
                 (float) Math.sqrt(Math.pow(corners[2] - corners[4], 2) + Math.pow(corners[3] - corners[5], 2))};
     }
@@ -54,7 +54,7 @@ public class RectUtils {
      * @param array array of 2D coordinates
      * @return smallest rectangle containing coordinates
      */
-    public static RectF trapToRect(float[] array) {
+    public static RectF trapToRect(float[] array) { // 모서리 좌표를 이용하여 사각형 반환
         RectF r = new RectF(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY,
                 Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY);
         for (int i = 1; i < array.length; i += 2) {
