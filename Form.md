@@ -1,6 +1,6 @@
 uCrop (https://github.com/Yalantis/uCrop)
 ===========
-Chosun Univ. Opensource Software Project(01), Devsign
+Chosun Univ. Opensource Software Project(01), Group_03, Devsign
 ------------
 
 
