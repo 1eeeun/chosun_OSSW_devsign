@@ -1,7 +1,34 @@
 package com.yalantis.ucrop.view;
 
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.IntRange;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.util.AttributeSet;
 
-####com.yalantis.ucrop\view\CropImageView
+import com.yalantis.ucrop.R;
+import com.yalantis.ucrop.callback.BitmapCropCallback;
+import com.yalantis.ucrop.callback.CropBoundsChangeListener;
+import com.yalantis.ucrop.model.CropParameters;
+import com.yalantis.ucrop.model.ImageState;
+import com.yalantis.ucrop.task.BitmapCropTask;
+import com.yalantis.ucrop.util.CubicEasing;
+import com.yalantis.ucrop.util.RectUtils;
+
+import java.lang.ref.WeakReference;
+import java.util.Arrays;
+
+/**
+ * Created by Oleksii Shliama (https://github.com/shliama).
+ * <p/>
+ * 이 클래스는 자르기 기능, 자르기 지침을 작성하고 이미지를 올바른 상태로 유지하는 방법을
+ * 추가한다. 또한 확장을 위한 검사를 추가하기 위해 부모 클래스 메소드를 확장한다.
+ */
 public class CropImageView extends TransformImageView {
 
     public static final int DEFAULT_MAX_BITMAP_SIZE = 0;
@@ -39,7 +66,7 @@ public class CropImageView extends TransformImageView {
 
     /**
      * 모든 최신 애니메이션을 취소하고 '자르기 영역'을 채우기 위해 이미지를 설정(애니메이션 없이)
-     * 적절한 매개변수를 사용하여 {@link BitmapCropTask}를 생성하고 실행*/
+     * 적절한 매개변수를 사용하여 {@link BitmapCropTask}를 생성하고 실행한다.*/
     public void cropAndSaveImage(@NonNull Bitmap.CompressFormat compressFormat, int compressQuality,
                                  @Nullable BitmapCropCallback cropCallback) {
         cancelAllAnimations();
@@ -59,7 +86,7 @@ public class CropImageView extends TransformImageView {
 
 
     /**
-     * 현재 이미지와 자르기 비율의 최대 범위 값을 반환
+     * 현재 이미지와 자르기 비율의 최대 범위 값을 반환한다.
      */
     public float getMaxScale() {
         return mMaxScale;
@@ -67,7 +94,7 @@ public class CropImageView extends TransformImageView {
 
 
     /**
-     * 현재 이미지와 자르기 비율의 최소 범위 값을 반환
+     * 현재 이미지와 자르기 비율의 최소 범위 값을 반환한다.
      */
     public float getMinScale() {
         return mMinScale;
@@ -81,8 +108,8 @@ public class CropImageView extends TransformImageView {
     }
 
     /**
-     * 현재 자르기 사각형을 지정된 것으로 업데이트
-     * 이미지 특성을 다시 계산하고 새로운 자르기 사각형에 맞춰 위치 지정
+     * 현재 자르기 사각형을 지정된 것으로 업데이트한다.
+     * 이미지 특성을 다시 계산하고 새로운 자르기 사각형에 맞춰 위치를 지정한다.
      */
     public void setCropRect(RectF cropRect) {
         mTargetAspectRatio = cropRect.width() / cropRect.height();
@@ -92,11 +119,11 @@ public class CropImageView extends TransformImageView {
         setImageToWrapCropBounds();
     }
 
- 
+
     /**
-     * 자르기 범위의 종횡비 설정
+     * 자르기 범위의 종횡비를 설정한다.
      * {@link #SOURCE_IMAGE_ASPECT_RATIO}의 값이 pass이면
-     * 종횡비는 현재 이미지 너비와 높이를 기반으로 계산된다
+     * 종횡비는 현재 이미지 너비와 높이를 기반으로 계산된다.
      * @param targetAspectRatio - 이미지 자르기의 가로 세로 비율 (예 - 16:9의 경우 1.77(7))
      */
     public void setTargetAspectRatio(float targetAspectRatio) {
@@ -148,7 +175,7 @@ public class CropImageView extends TransformImageView {
 
 
     /**
-     *자르기 경계를 감싸기 위해 이미지의 애니메이션 지속 시간을 설정
+     *자르기 경계를 감싸기 위해 이미지의 애니메이션 지속 시간을 설정한다.
      * @param imageToWrapCropBoundsAnimDuration - 기간(밀리세컨드 단위)
      * */
 
@@ -162,7 +189,7 @@ public class CropImageView extends TransformImageView {
 
 
     /**
-     *배율은 최소 이미지 범위에서 최대 이미지 범위 계산하는데 사용됨
+     *배율은 최소 이미지 범위에서 최대 이미지 범위 계산하는데 사용된다.
      * @param maxScaleMultiplier - (최소 범위 * 최대 범위)
      */
     public void setMaxScaleMultiplier(float maxScaleMultiplier) {
@@ -170,14 +197,14 @@ public class CropImageView extends TransformImageView {
     }
 
     /**
-     * This method scales image down for given value related to image center.
+     * 이미지 중심과 관련된 주어진 값에 대해 이미지의 크기를 조절(축소)한다.
      */
     public void zoomOutImage(float deltaScale) {
         zoomOutImage(deltaScale, mCropRect.centerX(), mCropRect.centerY());
     }
 
     /**
-     * This method scales image down for given value related given coords (x, y).
+     * 주어진 값 (x,y)에 관련된 주어진 값에 대해 이미지의 크기를 조절(축소)한다.
      */
     public void zoomOutImage(float scale, float centerX, float centerY) {
         if (scale >= getMinScale()) {
@@ -186,14 +213,14 @@ public class CropImageView extends TransformImageView {
     }
 
     /**
-     * This method scales image up for given value related to image center.
+     * 이미지 중심과 관련된 주어진 값에 대해 이미지의 크기를 조절(확대)한다.
      */
     public void zoomInImage(float deltaScale) {
         zoomInImage(deltaScale, mCropRect.centerX(), mCropRect.centerY());
     }
 
     /**
-     * This method scales image up for given value related to given coords (x, y).
+     * 주어진 값 (x,y)에 관련된 주어진 값에 대해 이미지의 크기를 조절(확대)한다.
      */
     public void zoomInImage(float scale, float centerX, float centerY) {
         if (scale <= getMaxScale()) {
@@ -202,12 +229,13 @@ public class CropImageView extends TransformImageView {
     }
 
     /**
-     * This method changes image scale for given value related to point (px, py) but only if
-     * resulting scale is in min/max bounds.
+     * 결과의 범위값이 최소/최대의 경계 내에 있는 경우에만,
+     * 점 (px, py)와 관련된 주어진 값에 대한 이미지 범위를 변경한다.
      *
-     * @param deltaScale - scale value
-     * @param px         - scale center X
-     * @param py         - scale center Y
+     *
+     * @param deltaScale - 값의 범위
+     * @param px         - X 중심의 범위
+     * @param py         - Y 중심의 범위
      */
     public void postScale(float deltaScale, float px, float py) {
         if (deltaScale > 1 && getCurrentScale() * deltaScale <= getMaxScale()) {
@@ -218,16 +246,16 @@ public class CropImageView extends TransformImageView {
     }
 
     /**
-     * This method rotates image for given angle related to the image center.
+     * 이미지 중심과 관련된 특정 각도로 이미지를 회전한다.
      *
-     * @param deltaAngle - angle to rotate
+     * @param deltaAngle - 회전할 각도
      */
     public void postRotate(float deltaAngle) {
         postRotate(deltaAngle, mCropRect.centerX(), mCropRect.centerY());
     }
 
     /**
-     * This method cancels all current Runnable objects that represent animations.
+     * 애니메이션을 나타내는 현재 실행 가능한 모든 객체를 취소한다.
      */
     public void cancelAllAnimations() {
         removeCallbacks(mWrapCropBoundsRunnable);
@@ -239,12 +267,11 @@ public class CropImageView extends TransformImageView {
     }
 
     /**
-     * If image doesn't fill the crop bounds it must be translated and scaled properly to fill those.
-     * <p/>
-     * Therefore this method calculates delta X, Y and scale values and passes them to the
-     * {@link WrapCropBoundsRunnable} which animates image.
-     * Scale value must be calculated only if image won't fill the crop bounds after it's translated to the
-     * crop bounds rectangle center. Using temporary variables this method checks this case.
+     * 이미지가 자르기 범위를 채우지 않으면 해당 영역을 채우기 위해 이미지를 올바르게 변환하고
+     * 크기를 조정해야 한다. 따라서 이 메소드는 delta x, y 및 범위 값을 계산하고 이미지를
+     * 애니메이션으로 애니메이션으로 확대하는 {@link WrapCropBoundsRunnable}로 전달.
+     * 크기 값은 이미지가 자르기 경계 사각형 중심으로 변환된 후 자르기 경계를 채우지 않는 경우에만
+     * 계산되어야 한다. 임시 변수를 사용하여 이 방법을 확인한다.
      */
     public void setImageToWrapCropBounds(boolean animate) {
         if (mBitmapLaidOut && !isImageWrapCropBounds()) {
@@ -296,12 +323,12 @@ public class CropImageView extends TransformImageView {
     }
 
     /**
-     * First, un-rotate image and crop rectangles (make image rectangle axis-aligned).
-     * Second, calculate deltas between those rectangles sides.
-     * Third, depending on delta (its sign) put them or zero inside an array.
-     * Fourth, using Matrix, rotate back those points (indents).
+     * 첫번째로, 이미지 회전 및 자르기 직사각형을 회전한다.
+     * 두번째로, 꼭지점 사이의 delta를 계산한다.
+     * 세번째로, delta(부호)에 따라 배열 안에 0 또는 delta를 넣는다.
+     *네번째로, Matrix를 사용하여 그 점들을 다시 회전시킨다.
      *
-     * @return - the float array of image indents (4 floats) - in this order [left, top, right, bottom]
+     * @return - 이미지 들여쓰기의 float 배열 (4 float) - [left, top, right, bottom]순으로
      */
     private float[] calculateImageIndents() {
         mTempMatrix.reset();
@@ -335,7 +362,7 @@ public class CropImageView extends TransformImageView {
     }
 
     /**
-     * When image is laid out it must be centered properly to fit current crop bounds.
+     * 이미지를 배치할 때, 현재 자르기 범위에 맞게 적절히 중심을 맞추어야 한다.
      */
     @Override
     protected void onImageLaidOut() {
@@ -375,18 +402,17 @@ public class CropImageView extends TransformImageView {
     }
 
     /**
-     * This method checks whether current image fills the crop bounds.
+     * 현재 이미지가 자르기 경계를 채우는지 여부를 점검한다.
      */
     protected boolean isImageWrapCropBounds() {
         return isImageWrapCropBounds(mCurrentImageCorners);
     }
 
     /**
-     * This methods checks whether a rectangle that is represented as 4 corner points (8 floats)
-     * fills the crop bounds rectangle.
+     * 4개의 모서리 점(8 float)으로 표현되는 사각형이 자르기 경계 사각형을 채우는지 여부를 점검한다.
      *
-     * @param imageCorners - corners of a rectangle
-     * @return - true if it wraps crop bounds, false - otherwise
+     * @param imageCorners - 사각형의 모서리
+     * @return - 자르기 범위를 감싸는 경우 true, 그렇지 않으면 false
      */
     protected boolean isImageWrapCropBounds(float[] imageCorners) {
         mTempMatrix.reset();
@@ -402,12 +428,12 @@ public class CropImageView extends TransformImageView {
     }
 
     /**
-     * This method changes image scale (animating zoom for given duration), related to given center (x,y).
+     *주어진 중심(x, y)에 관련된 이미지 범위(주어진 시간동안 애니메이션 확대/축소)를 변경한다.
      *
-     * @param scale      - target scale
-     * @param centerX    - scale center X
-     * @param centerY    - scale center Y
-     * @param durationMs - zoom animation duration
+     * @param scale      - 목표 범위
+     * @param centerX    - 중심 X의 범위
+     * @param centerY    - 중심 Y의 범위
+     * @param durationMs - 애니메이션 지속 시간
      */
     protected void zoomImageToPosition(float scale, float centerX, float centerY, long durationMs) {
         if (scale > getMaxScale()) {
@@ -430,10 +456,10 @@ public class CropImageView extends TransformImageView {
     }
 
     /**
-     * This method calculates image minimum and maximum scale values for current {@link #mCropRect}.
+     * 현재 {@link #mCropRect}에 대한 이미지의 최소값과 최대값을 계산한다.
      *
-     * @param drawableWidth  - image width
-     * @param drawableHeight - image height
+     * @param drawableWidth  - 이미지 너비
+     * @param drawableHeight - 이미지 높이
      */
     private void calculateImageScaleBounds(float drawableWidth, float drawableHeight) {
         float widthScale = Math.min(mCropRect.width() / drawableWidth, mCropRect.width() / drawableHeight);
@@ -444,11 +470,11 @@ public class CropImageView extends TransformImageView {
     }
 
     /**
-     * This method calculates initial image position so it is positioned properly.
-     * Then it sets those values to the current image matrix.
+     * 초기 이미지 위치를 계산하여 올바르게 배치한다.
+     * 그런 다음 해당 값을 현재 이미지 행렬에 설정한다.
      *
-     * @param drawableWidth  - image width
-     * @param drawableHeight - image height
+     * @param drawableWidth  - 이미지 너비
+     * @param drawableHeight - 이미지 높이
      */
     private void setupInitialImagePosition(float drawableWidth, float drawableHeight) {
         float cropRectWidth = mCropRect.width();
@@ -469,8 +495,8 @@ public class CropImageView extends TransformImageView {
     }
 
     /**
-     * This method extracts all needed values from the styled attributes.
-     * Those are used to configure the view.
+     * 스타일 지정된 특성에서 필요한 모든 값을 추출한다.
+     * 보기를 구성하는데 사용된다.
      */
     @SuppressWarnings("deprecation")
     protected void processStyledAttributes(@NonNull TypedArray a) {
@@ -485,11 +511,11 @@ public class CropImageView extends TransformImageView {
     }
 
     /**
-     * This Runnable is used to animate an image so it fills the crop bounds entirely.
-     * Given values are interpolated during the animation time.
-     * Runnable can be terminated either vie {@link #cancelAllAnimations()} method
-     * or when certain conditions inside {@link WrapCropBoundsRunnable#run()} method are triggered.
-     */
+     * 이 Runnable은 이미지를 움직이게 하여 자르기 범위를 완전히 채울 수 있다.
+     * 주어진 값은 애니메이션 시간동안 채워진다.
+     * Runnable은 {@link #cancelAllAnimations()}메소드 혹은 {@link WrapCropBoundsRunnable} 메소드 내의
+     * 특정 조건이 트리거 될 때 종료될 수 있다.
+     * */
     private static class WrapCropBoundsRunnable implements Runnable {
 
         private final WeakReference<CropImageView> mCropImageView;
@@ -548,11 +574,11 @@ public class CropImageView extends TransformImageView {
     }
 
     /**
-     * This Runnable is used to animate an image zoom.
-     * Given values are interpolated during the animation time.
-     * Runnable can be terminated either vie {@link #cancelAllAnimations()} method
-     * or when certain conditions inside {@link ZoomImageToPosition#run()} method are triggered.
-     */
+     * 이 Runnable은 이미지 확대/축소에 애니메이션을 적용하는데 사용된다.
+     * 주어진 값은 애니메이션 시간동안 채워진다.
+     * Runnable은 {@link #cancelAllAnimations()} 메소드로 종료할수도 있고,
+     * {@link ZoomImageToPosition#run()}메소드 내의 특정 조건이 트리거 되었을 떄 종료할 수 있다.
+     **/
     private static class ZoomImageToPosition implements Runnable {
 
         private final WeakReference<CropImageView> mCropImageView;
