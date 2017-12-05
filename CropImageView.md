@@ -1,3 +1,5 @@
+####com.yalantis.ucrop\view\CropImageView
+
 package com.yalantis.ucrop.view;
 
 import android.content.Context;
@@ -23,13 +25,12 @@ import com.yalantis.ucrop.util.RectUtils;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
 
-/**
- * Created by Oleksii Shliama (https://github.com/shliama).
- * <p/>
- * 이 클래스는 자르기 기능, 자르기 지침을 작성하고 이미지를 올바른 상태로 유지하는 방법을
- * 추가한다. 또한 확장을 위한 검사를 추가하기 위해 부모 클래스 메소드를 확장한다.
- */
-public class CropImageView extends TransformImageView {
+**Created by Oleksii Shliama (https://github.com/shliama).**
+
+ ** 이 클래스는 자르기 기능, 자르기 지침을 작성하고 이미지를 올바른 상태로 유지하는 방법을 추가한다.**
+ ** 또한 확장을 위한 검사를 추가하기 위해 부모 클래스 메소드를 확장한다.**
+ 
+	public class CropImageView extends TransformImageView {
 
     public static final int DEFAULT_MAX_BITMAP_SIZE = 0;
     public static final int DEFAULT_IMAGE_TO_CROP_BOUNDS_ANIM_DURATION = 500;
@@ -624,5 +625,4 @@ public class CropImageView extends TransformImageView {
         }
 
     }
-
 }
