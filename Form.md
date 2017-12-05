@@ -1,19 +1,39 @@
-Chosun Univ. Opensource Software Project(01), Devsign
-===========
 uCrop (https://github.com/Yalantis/uCrop)
+===========
+Chosun Univ. Opensource Software Project(01), Group_03, Devsign
 ------------
 
 
-# 1. 이 프로그램을 고른 이유
-> 세 명의 조원이 모두 이해하기 쉬운 언어를 찾아본 결과 자바, 안드로이드, cpp등을 찾았고 서로의 의견 조율 결과 자바나 안드로이드로 구현된 오픈소스 소프트웨어를 찾게 되었습니다.
->
->Github 에서 Topic 과 Explore 에서 검색을 통해 uCrop 이라는 안드로이드 이미지 편집 프로그램을 발견하여 소스를 대략적으로 보고 회의한 결과, 주제도 흥미롭고 난이도도 적당하여 uCrop 으로 프로젝트 프로그램으로 정했습니다.
+## 이 프로그램을 고른 이유
+ 세 명의 조원이 모두 이해하기 쉬운 언어를 찾아본 결과 자바, 안드로이드, cpp등이 있었고, 서로의 의견 조율 결과 자바나  
+ 안드로이드로 구현된 오픈소스 소프트웨어를 찾게 되었습니다.  
+ 
+ Github 에서 Topic 과 Explore 에서 검색을 통해 uCrop 이라는 안드로이드 이미지 편집 프로그램을 발견하여 소스를  
+ 대략적으로 보고 회의한 결과, 주제도 흥미롭고 난이도도 적당하여 uCrop 으로 프로젝트 프로그램으로 정했습니다.
+ 
+## Program Summary
+이미지를 불러와 확대, 축소, 자르기, 회전 등 이미지 편집을 한 후 편집한 이미지를 원하는 비율로 저장하는 기능을 가진   
+라이브리리  
+- 커스터마이징  
+  사용자에게 자르기 비율을 동적으로 선택할 수 있게 하려면 `withAspectRatio((x, y)`를 호출하는게 아닌 uCrop 빌더   
+  클래스가 가진 `withOptions(UCrop,Options options`를 사용하면 됨
+  
+  아래의 사항들을 변경할 수 있음  
+  - 이미지 압축 포맷(예 : PNG, JPEG, WEBP) 압축
+  - 이미지 압축 품질(0 ~ 100), 무압축 손실인 PNG는 품질 설정을 무시
+  - 모든 제스처가 동시에 활성화되는지 여부
+  - 소스 Uri에서 디코딩되고
+  - 자르기 프레임 / 격자를 표시할지 여부 토글
+  - 자르기 프레임, 행, 열들의 색, 너비, 갯수 설정
+  - 직사각형 또는 타원형 자르기 영억 고르기
+  - UI 색상(툴바, 상태 표시 줄, 활성 위젯 상태)
+  - 기타 등등  
+- 호환
+  - Library - Android ICS 4.0+ (API 14) (Android GINGERBREAD 2.3+ (API 10) for versions <= 1.3.2)
+  - Sample - Android ICS 4.0+ (API 14)
+  - CPU - armeabi armeabi-v7a x86 x86_64 arm64-v8a (for versions >= 2.1.2)
 
-
-# 2. Program Summary
-> 개요
-
-# 3. 오픈 소스 SW에 대한 각 기능별 설명(폴더별 or 중요한 순서)
+## 오픈 소스 SW에 대한 각 기능별 설명(폴더별 or 중요한 순서)
 >- 1번 기능
 	code
 ABCD
@@ -26,8 +46,8 @@ ABCD
 <pre><code>code</code></pre>
 ABCD
 
-# 4. Bug Report
+## Bug Report
 
-# 5. 프로그램 개선사항
+## 프로그램 개선사항
 
-# 6. 소감
+## 소감
