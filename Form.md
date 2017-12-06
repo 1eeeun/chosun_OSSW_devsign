@@ -2,7 +2,7 @@ uCrop (https://github.com/Yalantis/uCrop)
 ===========
 Chosun Univ. Opensource Software Project(01), Group_03, Devsign
 ------------
-
+![uCrop_main](https://github.com/Yalantis/uCrop/blob/master/preview.gif)
 
 ## 이 프로그램을 고른 이유
  세 명의 조원이 모두 이해하기 쉬운 언어를 찾아본 결과 자바, 안드로이드, cpp등이 있었고, 서로의 의견 조율 결과 자바나  
