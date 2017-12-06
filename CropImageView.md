@@ -1,4 +1,4 @@
-####com.yalantis.ucrop\view\widget\CropImageView
+####com.yalantis.ucrop\view\CropImageView
 
 package com.yalantis.ucrop.view;
 

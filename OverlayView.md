@@ -1,4 +1,4 @@
-####com.yalantis.ucrop\view\widget\OverlayView
+####com.yalantis.ucrop\view\OverlayView
 
 package com.yalantis.ucrop.view;
 
