@@ -56,7 +56,7 @@ public class FileUtils {
      * @return Whether the Uri authority is ExternalStorageProvider.
      * @author paulburke
      */
-    public static boolean isExternalStorageDocument(Uri uri) {
+    public static boolean isExternalStorageDocument(Uri uri) {  // Uri 권한이 외부 저장 제공자인지 확인
         return "com.android.externalstorage.documents".equals(uri.getAuthority());
     }
 
@@ -65,7 +65,7 @@ public class FileUtils {
      * @return Whether the Uri authority is DownloadsProvider.
      * @author paulburke
      */
-    public static boolean isDownloadsDocument(Uri uri) {
+    public static boolean isDownloadsDocument(Uri uri) {    // Uri 권한이 다운로드 제공자인지 확인
         return "com.android.providers.downloads.documents".equals(uri.getAuthority());
     }
 
@@ -74,7 +74,7 @@ public class FileUtils {
      * @return Whether the Uri authority is MediaProvider.
      * @author paulburke
      */
-    public static boolean isMediaDocument(Uri uri) {
+    public static boolean isMediaDocument(Uri uri) {    // Uri 권한이 미디어 제공자인지 확인
         return "com.android.providers.media.documents".equals(uri.getAuthority());
     }
 
@@ -82,7 +82,7 @@ public class FileUtils {
      * @param uri The Uri to check.
      * @return Whether the Uri authority is Google Photos.
      */
-    public static boolean isGooglePhotosUri(Uri uri) {
+    public static boolean isGooglePhotosUri(Uri uri) {  // Uri 권한이 Ggoogle Photo인지 확인
         return "com.google.android.apps.photos.content".equals(uri.getAuthority());
     }
 
@@ -97,6 +97,8 @@ public class FileUtils {
      * @return The value of the _data column, which is typically a file path.
      * @author paulburke
      */
+
+    //  Uri에 대한 데이터의 컬럼값을 가져옵니다. 이 기능은 미디어저장 Uri들과 기타 파일 기반 컨텐츠제공자에게 유용합니다.
     public static String getDataColumn(Context context, Uri uri, String selection,
                                        String[] selectionArgs) {
 
@@ -135,6 +137,9 @@ public class FileUtils {
      * @param uri     The Uri to query.
      * @author paulburke
      */
+    
+    // Uri에서 파일경로를 가져옵니다. 이것은 저장소 접근 프레임워크 다큐먼트의 경로와 미디어저장 및 기타 파일 기반 컨텐츠 제공자의 경로의 데이터 필드가 표시됩니다.
+    // 호출자는 경로가 로컬 파일인지 여부를 확인하기 전에 경로가 로컬인지 여부를 확인해야 합니다.
     @SuppressLint("NewApi")
     public static String getPath(final Context context, final Uri uri) {
         final boolean isKitKat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
@@ -215,6 +220,9 @@ public class FileUtils {
      * will cause both files to become null.
      * Simply skipping this step if the paths are identical.
      */
+    // 주어진 경로로 하나의 파일을 다른 파일로 복사합니다.
+    // 경로가 동일한 경우 하나의 파일을 다른 파일로 복사하려고 하면 두 파일 모두 null이 됩니다.
+    // 경로가 동일하면 이 단계를 건너뜁니다.
     public static void copyFile(@NonNull String pathFrom, @NonNull String pathTo) throws IOException {
         if (pathFrom.equalsIgnoreCase(pathTo)) {
             return;
