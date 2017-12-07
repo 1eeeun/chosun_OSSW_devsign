@@ -137,7 +137,7 @@ public class FileUtils {
      * @param uri     The Uri to query.
      * @author paulburke
      */
-    
+
     // Uri에서 파일경로를 가져옵니다. 이것은 저장소 접근 프레임워크 다큐먼트의 경로와 미디어저장 및 기타 파일 기반 컨텐츠 제공자의 경로의 데이터 필드가 표시됩니다.
     // 호출자는 경로가 로컬 파일인지 여부를 확인하기 전에 경로가 로컬인지 여부를 확인해야 합니다.
     @SuppressLint("NewApi")
@@ -145,6 +145,7 @@ public class FileUtils {
         final boolean isKitKat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
 
         // DocumentProvider
+        // 다큐먼트 제공자
         if (isKitKat && DocumentsContract.isDocumentUri(context, uri)) {
             if (isExternalStorageDocument(uri)) {
                 final String docId = DocumentsContract.getDocumentId(uri);
@@ -158,6 +159,7 @@ public class FileUtils {
                 // TODO handle non-primary volumes
             }
             // DownloadsProvider
+            // 다운로드 제공자
             else if (isDownloadsDocument(uri)) {
 
                 final String id = DocumentsContract.getDocumentId(uri);
@@ -174,6 +176,7 @@ public class FileUtils {
 
             }
             // MediaProvider
+            // 미디어 제공자
             else if (isMediaDocument(uri)) {
                 final String docId = DocumentsContract.getDocumentId(uri);
                 final String[] split = docId.split(":");
@@ -197,9 +200,11 @@ public class FileUtils {
             }
         }
         // MediaStore (and general)
+        // 미디어 저장소
         else if ("content".equalsIgnoreCase(uri.getScheme())) {
 
             // Return the remote address
+            // 원격주소 반환
             if (isGooglePhotosUri(uri)) {
                 return uri.getLastPathSegment();
             }
