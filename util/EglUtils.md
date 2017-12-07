@@ -24,9 +24,9 @@ public class EglUtils {
 
     }
 
-    public static int getMaxTextureSize() {
+    public static int getMaxTextureSize() { //최대 텍스쳐 사이즈 얻기
         try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {  // Android 4.2 기준 처리
                 return getMaxTextureEgl14();
             } else {
                 return getMaxTextureEgl10();
@@ -40,6 +40,7 @@ public class EglUtils {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private static int getMaxTextureEgl14() {
         EGLDisplay dpy = EGL14.eglGetDisplay(EGL14.EGL_DEFAULT_DISPLAY);
+        // OpenGL ES 구현에 정의된 기본 속성을 가진 디스플레이 지칭
         int[] vers = new int[2];
         EGL14.eglInitialize(dpy, vers, 0, vers, 1);
 
@@ -86,11 +87,12 @@ public class EglUtils {
         return maxSize[0];
     }
 
-    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)  // Android 4.0 ~ 4.0.2 기준 처리
     private static int getMaxTextureEgl10() {
         EGL10 egl = (EGL10) javax.microedition.khronos.egl.EGLContext.getEGL();
 
         javax.microedition.khronos.egl.EGLDisplay dpy = egl.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
+        // OpenGL ES 구현에 정의된 기본 속성을 가진 디스플레이 지칭
         int[] vers = new int[2];
         egl.eglInitialize(dpy, vers);
 
