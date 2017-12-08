@@ -38,9 +38,9 @@ import okio.Okio;
 import okio.Sink;
 
 /**
- * Creates and returns a Bitmap for a given Uri(String url).
- * inSampleSize is calculated based on requiredWidth property. However can be adjusted if OOM occurs.
- * If any EXIF config is found - bitmap is transformed properly.
+ * 주어진 경로에 대한 비트맵을 만들어 반환
+ * inSampleSize는 requiredWidth속성을 기반으로 계산됨, 단 OOM이 발생하면 조정 가능
+ * exif 구성이 발견되면 비트맵이 완벽히 변환됨
  */
  // 이미지 로드 작업 클래스
 public class BitmapLoadTask extends AsyncTask<Void, Void, BitmapLoadTask.BitmapWorkerResult> {
