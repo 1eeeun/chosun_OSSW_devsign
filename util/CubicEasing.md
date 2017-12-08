@@ -1,3 +1,4 @@
+```
 package com.yalantis.ucrop.util;
 
 public final class CubicEasing {
@@ -18,3 +19,4 @@ public final class CubicEasing {
     }
 
 }
+```

@@ -1,3 +1,4 @@
+```
 /*
  * Copyright (C) 2008 The Android Open Source Project
  *
@@ -101,3 +102,4 @@ public class FastBitmapDrawable extends Drawable {
     }
 
 }
+```

@@ -1,3 +1,4 @@
+```
 package com.yalantis.ucrop.util;
 
 import android.annotation.TargetApi;
@@ -134,3 +135,4 @@ public class EglUtils {
         return maxSize[0];
     }
 }
+```

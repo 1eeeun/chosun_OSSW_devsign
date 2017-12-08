@@ -1,3 +1,4 @@
+```
 package com.yalantis.ucrop.util;
 
 import android.support.annotation.NonNull;
@@ -110,3 +111,4 @@ public class RotationGestureDetector {
     }
 
 }
+```
