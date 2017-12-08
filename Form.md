@@ -35,11 +35,6 @@ Chosun Univ. Opensource Software Project(01), Group_03, Devsign
 - - -
 ## 오픈 소스 SW에 대한 각 기능별 설명(폴더별)
 >  각 소스별 대략적인 설명은 gitgub폴더에 따로 업로드
-- callback
-  - BitmapCropCallback.java :
-  - BitmapLoadCallback.java : 
-  - CropBoundsChangeListener.java : 
-  - OverlayViewChangeListener.java : 
 - model
   - AspectRatio.java : 이미지 비율에 관한 클래스
   - CropParameters.java : 이미지 편집시 사용되는 인자들을 관리하는 클래스
@@ -67,8 +62,7 @@ Chosun Univ. Opensource Software Project(01), Group_03, Devsign
   - OverlayView.java : 이미지 위에 오버레이를 그리는 클래스
   - TransformImageView.java : 이미지 설정 및 변환에 관한 클래스
   - UCropView.java : 제스쳐와 오버레이에 관한 뷰를 정의하는 클래스
-- UCrop.java : 
-- UCropActivity.java : 
+- UCrop.java, UCropActivity.java : 옵션, 어플 오버레이를 조절하는 클래스
 - - -
 ## Bug Report
 - - -
