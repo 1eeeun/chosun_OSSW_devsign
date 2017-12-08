@@ -1,0 +1,11 @@
+uCrop / util
+-------------
+- BitmapLoadUtils
+- CubicEasing
+- EglUtils
+- FastBitmapDrawable
+- FileUtils
+- ImageHeaderParser
+- RectUtils
+- RotationGestureDetector
+- SelectedStateListDrawable

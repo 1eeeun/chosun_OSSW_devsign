@@ -60,13 +60,13 @@ Chosun Univ. Opensource Software Project(01), Group_03, Devsign
   - SelectedStateListDrawable.java : 
 - view
   - widget
-    - AspectRatioTextView.java : 
-    - HorizontalProgressWheelView.java : 
-  - CropImageView.java : 
-  - GestureCropImageView.java : 
-  - OverlayView.java : 
-  - TransformImageView.java : 
-  - UCropView.java : 
+    - AspectRatioTextView.java : 어플의 색상 및 텍스트뷰에 관한 클래스
+    - HorizontalProgressWheelView.java : 스크롤에 관한 클래스
+  - CropImageView.java : 자르기 기능, 자르기 가이드라인 작성 및 이미지 원형 유지 방법을 추가하는 클래스
+  - GestureCropImageView.java : 어플을 이용할 때 사용되는 제스쳐를 정의하는 클래스
+  - OverlayView.java : 이미지 위에 오버레이를 그리는 클래스
+  - TransformImageView.java : 이미지 설정 및 변환에 관한 클래스
+  - UCropView.java : 제스쳐와 오버레이에 관한 뷰를 정의하는 클래스
 - UCrop.java : 
 - UCropActivity.java : 
 - - -
