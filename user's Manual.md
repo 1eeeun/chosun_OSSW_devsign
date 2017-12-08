@@ -8,19 +8,23 @@ User's Manual
 결과가 만족스럽지 않은 경우 처음으로 되돌아갈 수 있습니다.  
 
 ## 메인 화면  
-<img src="https://github.com/ReDvGaMe/chosun_OSSW_devsign/blob/KJY/image/main_01.PNG?raw=true" width="30%">
-`PICK & CROP`은 사용자의 휴대폰 내 저장소에서 이미지 파일을 불러옵니다.  
-`CROP RANDOM IMAGE`는 웹에 있는 임의의 이미지 파일을 불러옵니다.  
+<img src="https://github.com/ReDvGaMe/chosun_OSSW_devsign/blob/KJY/image/uCrop_main.PNG?raw=true" width="30%">
 
+**①**`PICK & CROP`은 사용자의 휴대폰 내 저장소에서 이미지 파일을 불러옵니다.  
+**②**`CROP RANDOM IMAGE`는 웹에 있는 임의의 이미지 파일을 불러옵니다.  
+
+**③ Aspect ratio**  
 `Dynamic`은 기본적인 비율입니다.  
 `Image source`는 비율을 원본 이미지로 계산합니다.  
 `X to Y`에 값을 입력하면 X : Y 비율로 이미지를 수정합니다.  
 
-`Max cropped image size`는 수정한 이미지의 최대 해상도를 설정합니다.  
+**④**`Max cropped image size`는 수정한 이미지의 최대 해상도를 설정합니다.  
 
-`Compression settings`는 수정한 이미지의 확장자를 설정합니다.  
+**⑤**`Compression settings`는 수정한 이미지의 확장자를 설정합니다.  
 
-`Hide bottom UI controls`를 체크하면 편집화면에서 크기 비율, 각도, 화면비를 수정할 수 없습니다. 원본 이미지의 비율을 유지하고 해상도만 변경할 때 사용합니다.  
+**⑥**`Quality`는 수정한 이미지를 저장할 때 퀄리티를 설정합니다.
+
+**⑦**`Hide bottom UI controls`를 체크하면 편집화면에서 크기 비율, 각도, 화면비를 수정할 수 없습니다. 원본 이미지의 비율을 유지하고 해상도만 변경할 때 사용합니다.  
 - - -
 
 ## 이미지 편집화면
