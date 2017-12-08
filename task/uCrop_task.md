@@ -1,0 +1,4 @@
+uCrop / task
+-------------
+- BitmapCropTask
+- BitmapLoadTask
