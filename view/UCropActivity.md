@@ -1,5 +1,6 @@
 ####com.yalantis.ucrop\view\UCropActivity
 
+
 ```
 package com.yalantis.ucrop;
 
@@ -53,10 +54,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-** Created by Oleksii Shliama (https://github.com/shliama).**
+/**
+ * Created by Oleksii Shliama (https://github.com/shliama).
+ */
 
-	@SuppressWarnings("ConstantConditions")
-	public class UCropActivity extends AppCompatActivity {
+@SuppressWarnings("ConstantConditions")
+public class UCropActivity extends AppCompatActivity {
 
     public static final int DEFAULT_COMPRESS_QUALITY = 90;
     public static final Bitmap.CompressFormat DEFAULT_COMPRESS_FORMAT = Bitmap.CompressFormat.JPEG;
@@ -123,7 +126,7 @@ import java.util.Locale;
     public boolean onCreateOptionsMenu(final Menu menu) {
         getMenuInflater().inflate(R.menu.ucrop_menu_activity, menu);
 
-        // Change crop & loader menu icons color to match the rest of the UI colors
+        // 자르기 및 로더 메뉴 아이콘의 색상을 나머지 UI 색상과 일치하도록 변경
 
         MenuItem menuItemLoader = menu.findItem(R.id.menu_loader);
         Drawable menuItemLoaderIcon = menuItemLoader.getIcon();
@@ -149,12 +152,18 @@ import java.util.Locale;
         return true;
     }
 
+    /**
+     * 옵션 메뉴 선언
+     * */
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.menu_crop).setVisible(!mShowLoader);
         menu.findItem(R.id.menu_loader).setVisible(mShowLoader);
         return super.onPrepareOptionsMenu(menu);
     }
+    /**
+     * 옵션 메뉴가 선택되었을 떄 행동
+     * */
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -175,7 +184,7 @@ import java.util.Locale;
     }
 
     /**
-     * 들어오는 인덴트와 설정 뷰에서 모든 데이터를 올바르게 추출한다.
+     * 들어오는 인덴트와 설정 뷰에서 모든 데이터를 올바르게 추출
      */
     private void setImageData(@NonNull Intent intent) {
         Uri inputUri = intent.getParcelableExtra(UCrop.EXTRA_INPUT_URI);
@@ -197,11 +206,11 @@ import java.util.Locale;
 
     /**
      * 수신된 인덴트로부터 {@link com.yalantis.ucrop.UCrop.Options #optionsBundle}를 추출하고
-     * {@link OverlayView}와 {@link CropImageView}를 올바르게 설정하라.
+     * {@link OverlayView}와 {@link CropImageView}를 올바르게 설정
      */
     @SuppressWarnings("deprecation")
     private void processOptions(@NonNull Intent intent) {
-        // Bitmap compression options
+        // Bitmap 압축 옵션
         String compressionFormatName = intent.getStringExtra(UCrop.Options.EXTRA_COMPRESSION_FORMAT_NAME);
         Bitmap.CompressFormat compressFormat = null;
         if (!TextUtils.isEmpty(compressionFormatName)) {
@@ -211,18 +220,18 @@ import java.util.Locale;
 
         mCompressQuality = intent.getIntExtra(UCrop.Options.EXTRA_COMPRESSION_QUALITY, UCropActivity.DEFAULT_COMPRESS_QUALITY);
 
-        // Gestures options
+        // 제스쳐 옵션
         int[] allowedGestures = intent.getIntArrayExtra(UCrop.Options.EXTRA_ALLOWED_GESTURES);
         if (allowedGestures != null && allowedGestures.length == TABS_COUNT) {
             mAllowedGestures = allowedGestures;
         }
 
-        // Crop image view options
+        // 이미지 자르기 뷰 옵션
         mGestureCropImageView.setMaxBitmapSize(intent.getIntExtra(UCrop.Options.EXTRA_MAX_BITMAP_SIZE, CropImageView.DEFAULT_MAX_BITMAP_SIZE));
         mGestureCropImageView.setMaxScaleMultiplier(intent.getFloatExtra(UCrop.Options.EXTRA_MAX_SCALE_MULTIPLIER, CropImageView.DEFAULT_MAX_SCALE_MULTIPLIER));
         mGestureCropImageView.setImageToWrapCropBoundsAnimDuration(intent.getIntExtra(UCrop.Options.EXTRA_IMAGE_TO_CROP_BOUNDS_ANIM_DURATION, CropImageView.DEFAULT_IMAGE_TO_CROP_BOUNDS_ANIM_DURATION));
 
-        // Overlay view options
+        // 오버레이 뷰 옵션
         mOverlayView.setFreestyleCropEnabled(intent.getBooleanExtra(UCrop.Options.EXTRA_FREE_STYLE_CROP, OverlayView.DEFAULT_FREESTYLE_CROP_MODE != OverlayView.FREESTYLE_CROP_MODE_DISABLE));
 
         mOverlayView.setDimmedColor(intent.getIntExtra(UCrop.Options.EXTRA_DIMMED_LAYER_COLOR, getResources().getColor(R.color.ucrop_color_default_dimmed)));
@@ -238,7 +247,7 @@ import java.util.Locale;
         mOverlayView.setCropGridColor(intent.getIntExtra(UCrop.Options.EXTRA_CROP_GRID_COLOR, getResources().getColor(R.color.ucrop_color_default_crop_grid)));
         mOverlayView.setCropGridStrokeWidth(intent.getIntExtra(UCrop.Options.EXTRA_CROP_GRID_STROKE_WIDTH, getResources().getDimensionPixelSize(R.dimen.ucrop_default_crop_grid_stoke_width)));
 
-        // Aspect ratio options
+        // 종횡비 옵션
         float aspectRatioX = intent.getFloatExtra(UCrop.EXTRA_ASPECT_RATIO_X, 0);
         float aspectRatioY = intent.getFloatExtra(UCrop.EXTRA_ASPECT_RATIO_Y, 0);
 
@@ -257,7 +266,8 @@ import java.util.Locale;
             mGestureCropImageView.setTargetAspectRatio(CropImageView.SOURCE_IMAGE_ASPECT_RATIO);
         }
 
-        // Result bitmap max size options
+
+        // Bitmap 최대 사이즈 옵션 결과
         int maxSizeX = intent.getIntExtra(UCrop.EXTRA_MAX_SIZE_X, 0);
         int maxSizeY = intent.getIntExtra(UCrop.EXTRA_MAX_SIZE_Y, 0);
 
@@ -266,6 +276,10 @@ import java.util.Locale;
             mGestureCropImageView.setMaxResultImageSizeY(maxSizeY);
         }
     }
+
+    /**
+     * 뷰의 색상 및 하단 제어바 초기화
+     * */
 
     private void setupViews(@NonNull Intent intent) {
         mStatusBarColor = intent.getIntExtra(UCrop.Options.EXTRA_STATUS_BAR_COLOR, ContextCompat.getColor(this, R.color.ucrop_color_statusbar));
@@ -306,7 +320,7 @@ import java.util.Locale;
     }
 
     /**
-     * 상태바와 도구모음을 구성하고 스타일을 지정한다.
+     * 상태바와 도구모음을 구성하고 스타일을 지정
      */
     private void setupAppBar() {
         setStatusBarColor(mStatusBarColor);
@@ -333,6 +347,10 @@ import java.util.Locale;
         }
     }
 
+    /**
+     *
+     * */
+
     private void initiateRootViews() {
         mUCropView = (UCropView) findViewById(R.id.ucrop);
         mGestureCropImageView = mUCropView.getCropImageView();
@@ -345,6 +363,9 @@ import java.util.Locale;
         findViewById(R.id.ucrop_frame).setBackgroundColor(mRootViewBackgroundColor);
     }
 
+    /***
+     * TransformImageView의 리스너로 회전, 크기 변경 및 로드 완료/실패 시 취해지는 행동
+     */
     private TransformImageView.TransformImageListener mImageListener = new TransformImageView.TransformImageListener() {
         @Override
         public void onRotate(float currentAngle) {
@@ -387,7 +408,7 @@ import java.util.Locale;
 
 
     /**
-     * L 장치의 상태바 색을 설정한다.
+     * Loiipop 버전 이상의 상태바 색을 설정
      *
      * @param color - 상태바의 색상
      */
@@ -401,6 +422,10 @@ import java.util.Locale;
             }
         }
     }
+
+    /**
+     *
+     * */
 
     private void setupAspectRatioWidget(@NonNull Intent intent) {
 
@@ -551,6 +576,7 @@ import java.util.Locale;
         }
     };
 
+    //초기 상태 설정
     private void setInitialState() {
         if (mShowBottomControls) {
             if (mWrapperStateAspectRatio.getVisibility() == View.VISIBLE) {
@@ -590,12 +616,9 @@ import java.util.Locale;
 
     /**
      *
-     * 툴바 아래의 모든 것을 보여주는 뷰를 추가한다.
+     * 툴바 아래의 모든 것을 보여주는 뷰를 추가
      * 클릭할 때 - 사용자는 툴바 아래의 아무것도 클릭/터치할 수 없다.
      * 이미지를 로드하고 자르는 동안 사용자 입력을 차단해야 한다.
-     * Adds view that covers everything below the Toolbar.
-     * When it's clickable - user won't be able to click/touch anything below the Toolbar.
-     * Need to block user input while loading and cropping an image.
      */
     private void addBlockingView() {
         if (mBlockingView == null) {
