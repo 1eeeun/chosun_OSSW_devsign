@@ -8,9 +8,9 @@ User's Manual
 결과가 만족스럽지 않은 경우 처음으로 되돌아갈 수 있습니다.  
 
 ## 메인 화면  
-<img src="https://github.com/ReDvGaMe/chosun_OSSW_devsign/blob/KJY/image/uCrop_main.PNG?raw=true" width="30%">
+<img src="https://github.com/ReDvGaMe/chosun_OSSW_devsign/blob/master/image/uCrop_main.png?raw=true" width="30%">
 
-**①**`PICK & CROP`은 사용자의 휴대폰 내 저장소에서 이미지 파일을 불러옵니다.  
+**①**`PICK & CROP`은 사용자의 휴대폰 내 저장소에서 이미지 파일을 불러옵니다.  
 **②**`CROP RANDOM IMAGE`는 웹에 있는 임의의 이미지 파일을 불러옵니다.  
 
 **③ Aspect ratio**  
@@ -54,5 +54,6 @@ User's Manual
 
 ## 결과 화면
 <img src="https://github.com/ReDvGaMe/chosun_OSSW_devsign/blob/master/image/result.PNG?raw=true" width="30%">
+
 사용자 임의대로 화면 상단 우측의 체크 표시를 터치하면 결과 화면이 나옵니다.  
 편집이 완료되었으면 다운로드를 할 수 있고, 되돌아 갈 경우 메인 화면이 나옵니다.
