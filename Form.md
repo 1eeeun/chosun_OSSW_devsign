@@ -33,18 +33,42 @@ Chosun Univ. Opensource Software Project(01), Group_03, Devsign
   - Sample - Android ICS 4.0+ (API 14)
   - CPU - armeabi armeabi-v7a x86 x86_64 arm64-v8a (for versions >= 2.1.2)
 - - -
-## 오픈 소스 SW에 대한 각 기능별 설명(폴더별 or 중요한 순서)
->- 1번 기능
-	code
-ABCD
-
->- 2번 기능
-<pre><code>code</code></pre>
-ABCD
-
->- 3번 기능
-<pre><code>code</code></pre>
-ABCD
+## 오픈 소스 SW에 대한 각 기능별 설명(폴더별)
+>  각 소스별 대략적인 설명은 gitgub폴더에 따로 업로드
+- callback
+  - BitmapCropCallback.java : 
+  - BitmapLoadCallback.java : 
+  - CropBoundsChangeListener.java : 
+  - OverlayViewChangeListener.java : 
+- model
+  - AspectRatio.java : 이미지 비율에 관한 클래스
+  - CropParameters.java : 이미지 편집시 사용되는 인자들을 관리하는 클래스
+  - ExifInfo.java : Exif 정보에 관한 클래스
+  - ImageState.java : 이미지 상태를 반환하는 클래스
+- task
+  - BitmapCropTask.java : 이미지를 자르는 기능을 수행하는 클래스
+  - BitmapLoadTask.java : 이미지를 로드하는 작업을 수행하는 클래스
+- util
+  - BitmapLoadUtils.java : 
+  - CubicEasing.java : 
+  - EglUtils.java : 
+  - FastBitmapDrawable.java : 
+  - FileUtils.java : 
+  - ImageHeaderParser.java : 
+  - RectUtils.java : 
+  - RotationGestureDetector.java : 
+  - SelectedStateListDrawable.java : 
+- view
+  - widget
+    - AspectRatioTextView.java : 
+    - HorizontalProgressWheelView.java : 
+  - CropImageView.java : 
+  - GestureCropImageView.java : 
+  - OverlayView.java : 
+  - TransformImageView.java : 
+  - UCropView.java : 
+- UCrop.java : 
+- UCropActivity.java : 
 - - -
 ## Bug Report
 - - -
