@@ -33,11 +33,6 @@ Chosun Univ. Opensource Software Project(01), Group_03, Devsign
   - Sample - Android ICS 4.0+ (API 14)
   - CPU - armeabi armeabi-v7a x86 x86_64 arm64-v8a (for versions >= 2.1.2)
 - - -
-
-## 결과 화면
-<img src="https://github.com/ReDvGaMe/chosun_OSSW_devsign/blob/KJY/image/result.PNG?raw=true" width="30%">
-- 사용자 임의대로 화면 상단 우측의 체크 표시를 터치하면 결과 화면이 나옵니다.
-- 편집이 완료되었으면 다운로드를 할 수 있고, 되돌아 갈 경우 메인 화면이 나옵니다.
 ## 오픈 소스 SW에 대한 각 기능별 설명(폴더별)
 >  각 소스별 대략적인 설명은 gitgub폴더에 따로 업로드
 - callback
