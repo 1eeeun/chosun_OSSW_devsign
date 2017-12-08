@@ -38,7 +38,7 @@ import okio.Okio;
 import okio.Sink;
 
 /**
- * 주어진 Uri에 대한 비트맵을 만들어 반환
+ * 주어진 경로에 대한 비트맵을 만들어 반환
  * inSampleSize는 requiredWidth속성을 기반으로 계산됨, 단 OOM이 발생하면 조정 가능
  * exif 구성이 발견되면 비트맵이 완벽히 변환됨
  */
