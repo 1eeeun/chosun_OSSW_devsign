@@ -61,7 +61,7 @@ Chosun Univ. Opensource Software Project(01), Group_03, Devsign
 - view
   - widget
     - AspectRatioTextView.java : 어플의 색상 및 텍스트뷰에 관한 클래스
-    - HorizontalProgressWheelView.java : 
+    - HorizontalProgressWheelView.java : 스크롤에 관한 클래스
   - CropImageView.java : 자르기 기능, 자르기 가이드라인 작성 및 이미지 원형 유지 방법을 추가하는 클래스
   - GestureCropImageView.java : 어플을 이용할 때 사용되는 제스쳐를 정의하는 클래스
   - OverlayView.java : 이미지 위에 오버레이를 그리는 클래스
