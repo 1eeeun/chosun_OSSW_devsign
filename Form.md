@@ -1,36 +1,3 @@
-@@ -1,61 +1,77 @@
-uCrop
-=============
-User's Manual
--------------
-이 프로그램은 사용자의 저장소에서 이미지를 불러오거나 웹에서 임의의 이미지를 불러옵니다.
-이미지의 크기 비율, 각도, 화면비를 수정할 수 있습니다.
-작업을 완료 후에는 이미지를 사용자의 저장소에 저장할 수 있습니다. 결과가 만족스럽지 않은 경우 처음으로 되돌아갈 수 있습니다.
-
-## 메인 화면  
-
-![pick&crop](https://github.com/ReDvGaMe/chosun_OSSW_devsign/blob/master/image/PickCrop.png?raw=true)
-- PICK & CROP - 사용자의 휴대폰 내 저장소에서 이미지 파일을 불러옵니다.
-
-![crop random image](https://github.com/ReDvGaMe/chosun_OSSW_devsign/blob/master/image/CropRandomImage.png?raw=true)
-- CROP RANDOM IMAGE는 웹에 있는 임의의 이미지 파일을 불러옵니다.
-
-![Aspect Ratio](https://github.com/ReDvGaMe/chosun_OSSW_devsign/blob/master/image/AspectRatio.png?raw=true)
-- Dynamic - 기본적인 비율입니다.
-- Image source -  비율을 원본 이미지로 계산합니다.
-- X to Y에 값을 입력 -  X : Y 비율로 이미지를 수정합니다.
-
-![Max cropped image size](https://github.com/ReDvGaMe/chosun_OSSW_devsign/blob/master/image/MaxCroppedImageSize.png?raw=true)
-- Max cropped image size - 수정한 이미지의 최대 해상도를 설정합니다.
-
-![compression settings](https://github.com/ReDvGaMe/chosun_OSSW_devsign/blob/master/image/CompressionSettings.png?raw=true)
-- Compression settings - 수정한 이미지의 확장자를 설정합니다.
-
-![UI](https://github.com/ReDvGaMe/chosun_OSSW_devsign/blob/master/image/UI.png?raw=true)
-- Hide bottom UI controls(true) - 체크하면 편집화면에서 크기 비율, 각도, 화면비 수정 불가합니다.
-- 원본 이미지의 비율을 유지하고 해상도만 변경할 때 사용합니다.
-
-
 uCrop (https://github.com/Yalantis/uCrop)
 ===========
 Chosun Univ. Opensource Software Project(01), Group_03, Devsign
