@@ -22,11 +22,10 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Crops part of image that fills the crop bounds.
- * <p/>
- * First image is downscaled if max size was set and if resulting image is larger that max size.
- * Then image is rotated accordingly.
- * Finally new Bitmap object is created and saved to file.
+ * 자르기 범위를 채우는 이미지의 일부를 자름
+ * 먼저 이미지가 최대 크기보다 큰 경우, 이미지를 최대 크기로 축소 시킴
+ * 이미지가 그에 따라서 회전
+ * 마지막으로 새로운 비트맵 객체가 만들어지고 파일에 저장됨
  */
 // 비트맵 자르는 기능을 하는 클래스
 public class BitmapCropTask extends AsyncTask<Void, Void, Throwable> {
