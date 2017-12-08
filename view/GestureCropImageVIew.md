@@ -1,5 +1,7 @@
 ####com.yalantis.crop\view\GestureCropImageView
 
+
+```
 package com.yalantis.ucrop.view;
 
 import android.content.Context;
@@ -154,3 +156,4 @@ import com.yalantis.ucrop.util.RotationGestureDetector;
     }
 
 }
+```

@@ -1,5 +1,6 @@
 ####com.yalantis.ucrop\view\UCropActivity
 
+```
 package com.yalantis.ucrop;
 
 import android.annotation.TargetApi;
@@ -645,3 +646,4 @@ import java.util.Locale;
     }
 
 }
+```

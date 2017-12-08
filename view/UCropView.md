@@ -1,5 +1,6 @@
 ####com.yalantis.ucrop\view\UCropView
 
+```
 package com.yalantis.ucrop.view;
 
 import android.content.Context;
@@ -80,4 +81,4 @@ public class UCropView extends FrameLayout {
         mGestureCropImageView.setCropRect(getOverlayView().getCropViewRect());
         addView(mGestureCropImageView, 0);
     }
-}
+}```

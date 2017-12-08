@@ -1,5 +1,7 @@
-####com.yalantis.ycrop\view\
+####com.yalantis.ycrop\view\UCrop
 
+
+```
 package com.yalantis.ucrop;
 
 import android.annotation.TargetApi;
@@ -536,3 +538,4 @@ import java.util.Locale;
     }
 
 }
+```

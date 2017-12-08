@@ -1,5 +1,5 @@
 ####com.yalantis.ucrop\view\OverlayView
-
+```
 package com.yalantis.ucrop.view;
 
 import android.content.Context;
@@ -31,7 +31,7 @@ import java.lang.annotation.RetentionPolicy;
 ** 프레임, 자르기 가이드라인 및 음영 영역이 있을 수 있다.**
 ** 제대로 그리려면 LAYER_TYPE_SOFTWARE가 있어야 한다.**
 
-	
+
 	public class OverlayView extends View {
 
     public static final int FREESTYLE_CROP_MODE_DISABLE = 0;
@@ -578,3 +578,4 @@ import java.lang.annotation.RetentionPolicy;
     }
 
 }
+```
