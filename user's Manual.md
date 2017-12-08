@@ -28,7 +28,7 @@ User's Manual
 - - -
 
 ## 이미지 편집화면
-<img src="https://github.com/ReDvGaMe/chosun_OSSW_devsign/blob/mater/image/zoom.gif?raw=true" width="30%">  
+<img src="https://github.com/ReDvGaMe/chosun_OSSW_devsign/blob/master/image/zoom.gif?raw=true" width="30%">  
 
 사용자는 이미지의 크기 비율을 수정할 수 있습니다.  
 각각의 이미지마다 최소 비율은 상이합니다.  
